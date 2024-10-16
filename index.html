@@ -4,41 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Question Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #e3f2fd; /* Light blue background */
         }
         .container {
             text-align: center;
-        }
-        #question {
-            margin: 20px;
-            font-size: 1.5em;
+            background-color: white; /* White background for the content */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
             padding: 20px;
-            background-color: white;
-            border: 1px solid #ddd;
             width: 80%;
             max-width: 500px;
+        }
+        h1 {
+            color: #0d47a1; /* Dark blue for the heading */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        #question {
+            margin: 20px 0;
+            font-size: 1.5em;
+            padding: 20px;
+            border: 1px solid #2196f3; /* Blue border for question box */
+            border-radius: 5px; /* Slightly rounded corners */
+            background-color: #f9fbe7; /* Light green background for question */
+            color: #1b5e20; /* Dark green text color */
+        }
+        button {
+            background-color: #2196f3; /* Blue button */
+            color: white; /* White text on the button */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px; /* Rounded button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 1.2em; /* Larger font size */
+        }
+        button:hover {
+            background-color: #1976d2; /* Darker blue on hover */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Random Question Generator</h1>
-        <input type="file" id="fileUpload" accept=".xlsx, .xls" />
-        <br/><br/>
-        <button id="randomBtn" disabled>Get Random Question</button>
-        <div id="question">Upload an Excel file to start!</div>
+        <button id="randomBtn">Get Random Question</button>
+        <div id="question"></div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
+
+

@@ -1,34 +1,91 @@
-let questions = [];
+// Array of pre-loaded questions from Excel
+const questions = [
+     "What is the deciding factor as to whether the glider can be moved by pulling on both wingtips?",
+ "When, if ever, is it permissible to sit on the wing root of the aircraft?",
+ "After the aircraft commander gives the cable on instruction who should give the ‘open’ command?",
+ "What is the minimum permitted load in the front cockpit?",
+ "What are the five sections of the pre-flight brief?",
+ "What is the aim of exercise 2?",
+ "About which axis does the aircraft rotate when pitching?",
+ "Describe the process of trimming the aircraft?",
+ "Demonstrate the maintenance workcycle for the straight glide",
+ "What are the three conditions required to transition from initial climb to full climb?",
+ "What are the min, max and ideal speeds for the winch launch?",
+ "How do you know you have reached the top of the launch?",
+ "Describe the correct technique for releasing the cable at the top of the launch",
+ "Demonstrate the pre turn lookout for a turn to the left",
+ "What is the correct recovery for an overbanked turn?",
+ "The normal approach speed of the Viking is 55kts. When would 60kts be used?",
+ "What are the 4 A’s that tell you you’re flying a normal approach?",
+ "What word describes an approach where the attitude and airspeed are correct but the aiming point is moving down the canopy?",
+ "When can the airbrakes be closed and locked after landing?",
+ "Describe the recovery for a bounce on landing",
+ "Recite the HASLL checks from memory",
+ "On average how much height does a Viking glider lose during a stall?",
+ "Name the four symptoms of the stall",
+ "Name the four signs of the approaching stall",
+ "Draw and label the key points of a 1000ft normal circuit",
+ "What is the difference between an opening and a closing crosswind? How does it affect your sortie management?",
+ "You find yourself abeam the winch at 500ft. Describe the subsequent actions you would take",
+ "You experience a launch failure and cannot land ahead. On checking your height you are below 250ft what actions should you take?",
+ "If two aircraft are approaching head on what action should be taken?",
+ "If two aircraft are on a convergent heading but not head on who has right of way?",
+ "What is the procedure if you are retreiving an aircraft and another aircraft is on final?",
+ "Describe how you would safely join a thermal",
+ "Describe how you would safely share a thermal",
+ "Describe how you would safely leave a thermal",
+ "What is the minimum height AGL for thermal turns?",
+ "When can you not thermal in the visual circuit?",
+ "How much tyre creep is acceptable before the aircraft should be placed unservicable?",
+ "Describe how a simple altimeter works",
+ "What will happen to the altimeter if the static source is blocked?",
+ "What instruments does the pitot static source supply?",
+ "Describe how a simple ASI works",
+ "What happens to the ASI if the dynamic source is blocked?",
+ "What happens to the ASI if the static source is blocked?",
+ "What do the different colours on the ASI represent?",
+ "Describe how a simple variometer works",
+ "How does an aerofoil generate lift?",
+ "What factors affect how much lift an aerofoil will produce?",
+ "What is meant by the 'critical angle of attack'?",
+ "Drag can be split into zero lift drag and lift dependent drag. Zero lift drag can be further split into three components. What are they?",
+ "What is meant by surface friction drag? How can we reduce it?",
+ "What is form drag and how can we reduce it?",
+ "Describe interference drag and how the Viking is designed to reduce it",
+ "How do the Viking's long thin tapered wings help to reduce vortex drag?",
+ "What causes an aircraft to stall?",
+ "What factors affect the stalling speed of an aircraft?",
+ "Why might we get a wing drop when stalling?",
+ "What design feature does the Viking have to minimise the risk of wing tip stalling?",
+ "Describe the standard stall recovery",
+ "What is autorotation and how do you recover from it?",
+ "Describe the standard spin recovery",
+ "What happens to the ailerons when you move the control column to the left and why does it result in roll to the left?",
+ "What happens to the elevator when you move the control column forwards and why does it result in pitch down?",
+ "What happens to the rudder when you move the right rudder pedal forwards and why does it result in yaw to the right?",
+ "What is adverse yaw and how can we correct it?",
+ "Why do we trim the aircraft?",
+ "Roughly how many feet of height change is 1 hPa equivalent to?",
+ "How does looking at the below 10000ft forecast in the met brief help to identify wind speeds and directions?",
+ "How do clouds form?",
+ "How are thermals formed?",
+ "What sort of weather is usually associated with a cold front?",
+ "What sort of weather is usually associated with a warm front?",
+ "On Friday night there is no cloud. On Saturday morning there is a light wind. What weather would you expect to see on Saturday morning?",
+ "How are cloud (not CB) amounts described?",
+ "How are CB cloud amounts described?",
+ "If when towing cables the vehicle comes to a stop before the launchpoint and needs to move further forward what procedure should be followed?"
+];
 
-// Function to read and parse the Excel file
-document.getElementById('fileUpload').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const data = new Uint8Array(e.target.result);
-            const workbook = XLSX.read(data, { type: 'array' });
-            const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-            const excelData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+// Function to get a random question
+function getRandomQuestion() {
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    const randomQuestion = questions[randomIndex];
 
-            // Assuming the first row is a header, start reading from the second row
-            questions = excelData.slice(1).map(row => row[1]).filter(q => q);
-            if (questions.length > 0) {
-                document.getElementById('randomBtn').disabled = false;
-                document.getElementById('question').textContent = "File loaded! Click 'Get Random Question' to begin.";
-            } else {
-                document.getElementById('question').textContent = "No questions found in the uploaded file.";
-            }
-        };
-        reader.readAsArrayBuffer(file);
-    }
-});
+    document.getElementById('question').innerText = randomQuestion;
+}
 
-// Function to generate a random question
-document.getElementById('randomBtn').addEventListener('click', function() {
-    if (questions.length > 0) {
-        const randomIndex = Math.floor(Math.random() * questions.length);
-        const randomQuestion = questions[randomIndex];
-        document.getElementById('question').textContent = randomQuestion;
-    }
-});
+// Add event listener to the button
+document.getElementById('randomBtn').addEventListener('click', getRandomQuestion);
+
+
