@@ -74,6 +74,7 @@ const questions = [
  "On Friday night there is no cloud. On Saturday morning there is a light wind. What weather would you expect to see on Saturday morning?",
  "How are cloud (not CB) amounts described?",
  "How are CB cloud amounts described?",
+ "Looking at the met and wind conditions today, how have you adjusted your sortie management and positioning?",
  "If when towing cables the vehicle comes to a stop before the launchpoint and needs to move further forward what procedure should be followed?"
 ];
 
