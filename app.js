@@ -30,7 +30,7 @@ const questions = [
  "You experience a launch failure and cannot land ahead. On checking your height you are below 250ft what actions should you take?",
  "If two aircraft are approaching head on what action should be taken?",
  "If two aircraft are on a convergent heading but not head on who has right of way?",
- "What is the procedure if you are retreiving an aircraft and another aircraft is on final?",
+ "What is the procedure if you are retreiving an aircraft and another aircraft is on final approach?",
  "Describe how you would safely join a thermal",
  "Describe how you would safely share a thermal",
  "Describe how you would safely leave a thermal",
