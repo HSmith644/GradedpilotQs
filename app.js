@@ -8,6 +8,7 @@ const questions = [
  "What is the aim of exercise 2?",
  "About which axis does the aircraft rotate when pitching?",
  "Describe the process of trimming the aircraft?",
+"How can you estimate how strong the crosswind is", 
  "Demonstrate the maintenance workcycle for the straight glide",
  "What are the three conditions required to transition from initial climb to full climb?",
  "What are the min, max and ideal speeds for the winch launch?",
